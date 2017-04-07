@@ -35,6 +35,12 @@
   ******************************************************************************
   */
 
+
+/// Program is modified to run servo motor robotic arm..................
+
+
+
+
 /* Includes ------------------------------------------------------------------*/
 #include "mems.h"
 
@@ -101,50 +107,20 @@ static void ACCELERO_ReadAcc(void)
   
   xval = buffer[0];
   yval = buffer[1];
-  
-  if((ABS(xval))>(ABS(yval)))
-  {
-    if(xval > ThresholdHigh)
-    { 
-      /* LED5 On */
-      BSP_LED_On(LED5);
-      HAL_Delay(10);
-    }
-    else if(xval < ThresholdLow)
-    { 
-      /* LED4 On */
-      BSP_LED_On(LED4);      
-      HAL_Delay(10);
-    }
-    else
-    { 
-      HAL_Delay(10);
-    }
-  }
-  else
-  {
-    if(yval < ThresholdLow)
-    {
-      /* LED6 On */
-      BSP_LED_On(LED6);
-      HAL_Delay(10);
-    }
-    else if(yval > ThresholdHigh)
-    {
-      /* LED3 On */
-      BSP_LED_On(LED3);
-      HAL_Delay(10);
-    } 
-    else
-    { 
-      HAL_Delay(10);
-    }
-  } 
-  
+  int p,i;
+  p = (yval+2000)*20+20000;
+  BSP_LED_On(LED3);
+  for(i=0;i<p;i++);
   BSP_LED_Off(LED3);
+  for(i=0;i<p;i++);
+  
+  p = (xval+2000)*20+20000;
+  BSP_LED_On(LED4);
+  for(i=0;i<p;i++);
   BSP_LED_Off(LED4);
-  BSP_LED_Off(LED5);
-  BSP_LED_Off(LED6);
+  for(i=0;i<p;i++);
+  
+ 
 }
 
 /**
