@@ -10,3 +10,10 @@ Device: Startup, Common, Cortex, DMA, GPIO, I2C, PWR, RCC, SPI
 ***Flash-> Configure Flash Tools->C/C++ -> Include Paths : Browse to Inc directory in MEMS.
 
 The reference code is the BSP(Board Support) which is provided in Keil's STM32F4xx Software Pack.
+
+
+***************************************************************
+Edidited for Servo motor based robotic arm moment in accordance with angle recieved
+Editing in mems.c file
+Edited by: Khanjan Desai
+Date: 7th April, 2017
